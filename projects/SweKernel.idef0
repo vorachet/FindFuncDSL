@@ -1,0 +1,52 @@
+idef0 SweKernel 
+concepts 
+    Address Focus Provision
+    Demand UseAndConsume Support
+    ScopeAndConstraints Fulfillment
+    PeformsAndPlans Guides Production 
+    UpdatesAndChages 
+
+func Opportunity (          
+	receives Address                         
+	produces Focus
+	respects Provision                      
+)
+  
+func Stakeholder (   		                       
+	produces Demand UseAndConsume Support Provision   
+)
+   
+func Requirement (    		                  
+	receives Fulfillment                 
+	produces ScopeAndConstraints
+	respects Focus Demand
+)
+
+func SoftwareSystem (        		                       
+	produces Address Fulfillment
+	respects Production UseAndConsume UpdatesAndChages
+)
+
+func Work (         		                  
+	produces Address UpdatesAndChages
+	respects ScopeAndConstraints PeformsAndPlans Guides
+)
+  
+func WayofWorking (        		                  
+	produces Guides
+)
+
+func Team (
+	produces PeformsAndPlans Production
+	respects Guides Support
+)
+  
+diagram SWEKernelOverview title "SWE Kernel Overview" 
+	funcs (
+		Opportunity Stakeholder Requirement
+		SoftwareSystem Work WayofWorking
+		Team
+	)
+
+diagram WorkSystem title "WorkSystem" 
+	funcs (Work WayofWorking Team Requirement)

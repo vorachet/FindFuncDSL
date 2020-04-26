@@ -1,1 +1,1 @@
-# IDEF0-Dsl-to-Dotfile-Compiler
+# Headless IDEF0-Like-Dsl-to-Dotfile-Compiler

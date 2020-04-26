@@ -1,0 +1,29 @@
+idef0 Pizza 
+concepts 
+	Ingredients HungryCustomer CustomerOrder
+	Pizza Mess SatisifedCustomer Menu
+	Recipe Menu WaitStaff Chef Kitchen
+           
+func TakeOrder (            	  	                  
+	produces CustomerOrder         
+	respects Menu           
+	requires WaitStaff             
+)                 
+                     
+func CookPizza (                    
+	receives Ingredients Recipe       
+	produces Pizza
+	respects CustomerOrder           
+	requires Chef Kitchen   
+)      
+  
+func EatPizza (  
+	receives HungryCustomer Pizza
+	produces Mess SatisifedCustomer     
+)
+
+diagram PizzaOperations title "Pizza Operations" funcs (TakeOrder CookPizza EatPizza)
+diagram CookAndEatPizza title "Cook and Eat Pizza" funcs (CookPizza EatPizza)
+diagram PizzTakeOrder title "TakeOrder" funcs (TakeOrder)
+diagram PizzCookPizza title "CookPizza" funcs (CookPizza)
+diagram PizzEatPizza title "EatPizza" funcs (EatPizza)
