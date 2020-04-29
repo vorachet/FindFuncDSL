@@ -41,3 +41,19 @@ func MonitorAndRoute (
 view MaintainReparableSpares title "MaintainReparableSpares" funcs (
 	RemoveAndReplace ScheduleIntoShop InspectOrRepair MonitorAndRoute
 )
+
+view RemoveAndReplace title "RemoveAndReplace" funcs (
+	RemoveAndReplace
+)
+
+view ScheduleIntoShop title "ScheduleIntoShop" funcs (
+	ScheduleIntoShop
+)
+
+view InspectOrRepair title "InspectOrRepair" funcs (
+	InspectOrRepair
+)
+
+view InspectOrRepair title "MonitorAndRoute" funcs (
+	MonitorAndRoute
+)

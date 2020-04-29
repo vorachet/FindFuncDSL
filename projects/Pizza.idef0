@@ -4,7 +4,7 @@ concepts
 	Pizza Mess SatisifedCustomer Menu
 	Recipe Menu WaitStaff Chef Kitchen     
              
-func TakeOrder (            	  	                  
+func TakeOrder (              	  	                  
 	produces CustomerOrder                   
 	respects Menu           
 	requires WaitStaff                
