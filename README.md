@@ -40,7 +40,7 @@ If the server can be started successfully, the browser will automatically launch
 
 ![image](images/SweKernel_idef0.png)
 
-# Workflow
+# The workflow
 
 ## Start the server
 
@@ -52,23 +52,31 @@ npm start
 
 In order to work on multiple FindFuncDSL projects, save your DSL files in `projects` folder.
 
-Simplified structure of FindFuncDSL
+### Simplified structure of FindFuncDSL
+
+The reserved words that cannot be used as an {identifier}
+
+- idef0
+- concepts
+- func
+- view
+- title
 
 ```
-idef0 {ProjectName}
+idef0 ProjectName
 concepts
-	{InputConcept}  {OutputConcept}
-	{ResourceConcept}  {FinalOutputConcept}
+	InputConcept  OutputConcept
+	ResourceConcept  FinalOutputConcept
 
 func Function1 (
-	receives {InputConcept}
-	produces {OutputConcept}
-	requires {ResourceConcept}
+	receives InputConcept
+	produces OutputConcept
+	requires ResourceConcept
 )
 
 func Function2 (
-	produces {FinalOutputConcept}
-	respects {OutoutConcept}
+	produces FinalOutputConcept
+	respects OutoutConcept
 )
 
 view View1 title "My View1" funcs (Function1 Function2)
@@ -79,7 +87,7 @@ view View3 title "My View3" funcs (Function2)
 
 ```
 
-Examples DSL files
+Example DSL files
 
 - [MaintainReparableSpares.idef0](projects/MaintainReparableSpares.idef0)
 - [Pizza.idef0](projects/Pizza.idef0)
