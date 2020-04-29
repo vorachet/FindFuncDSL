@@ -1,0 +1,43 @@
+idef0 MaintainReparableSpares
+
+concepts
+	InServiceAsset
+	SpareAsset
+	DetectedMalfunction
+	SuspectedMalfunction
+	ReparableAsset
+	ReplacedAsset
+	StatusRecords
+	AssetsAwaitingParts
+	AssetBeforeRepair
+	SupplyParts
+	AssetAfterRepair
+	RepairedAsset
+	Spare
+
+func RemoveAndReplace (
+	receives InServiceAsset SpareAsset RepairedAsset
+	produces ReplacedAsset ReparableAsset
+	respects DetectedMalfunction SuspectedMalfunction
+)          
+   
+func ScheduleIntoShop (
+	receives ReparableAsset AssetsAwaitingParts
+	produces StatusRecords AssetBeforeRepair
+)  
+
+func InspectOrRepair (
+	receives AssetBeforeRepair
+	produces AssetAfterRepair
+	respects SupplyParts
+)
+
+func MonitorAndRoute (
+	receives AssetAfterRepair
+	produces RepairedAsset AssetsAwaitingParts
+	respects StatusRecords
+)
+
+view MaintainReparableSpares title "MaintainReparableSpares" funcs (
+	RemoveAndReplace ScheduleIntoShop InspectOrRepair MonitorAndRoute
+)

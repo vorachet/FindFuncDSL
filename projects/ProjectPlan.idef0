@@ -11,7 +11,7 @@ func Stage1 (
 	respects REQ1 REQ1_1 REQ1_2
 	requires Facility1                 
 )
-         
+          
 func Stage2 (          		                  
 	receives Deliverable1 Deliverable2 Deliverable3               
 	produces Deliverable4 Deliverable5 Deliverable6
@@ -25,5 +25,6 @@ func Stakeholder (
         Deliverable4 Deliverable5 Deliverable6
 )
 
-diagram ProjectStages title "ProjectStages" 
+view ProjectStages title "ProjectStages" 
 	funcs (Stage1 Stage2)
+         

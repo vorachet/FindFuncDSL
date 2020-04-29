@@ -6,11 +6,11 @@ concepts
     PeformsAndPlans Guides Production 
     UpdatesAndChages 
 
-func Opportunity (          
+func Opportunity (            
 	receives Address                         
 	produces Focus
 	respects Provision                      
-)
+)       
   
 func Stakeholder (   		                       
 	produces Demand UseAndConsume Support Provision   
@@ -39,14 +39,14 @@ func WayofWorking (
 func Team (
 	produces PeformsAndPlans Production
 	respects Guides Support
-)
+)  
   
-diagram SWEKernelOverview title "SWE Kernel Overview" 
+view SWEKernelOverview title "SWE Kernel Overview" 
 	funcs (
 		Opportunity Stakeholder Requirement
 		SoftwareSystem Work WayofWorking
 		Team
 	)
-
-diagram WorkSystem title "WorkSystem" 
+  
+view WorkSystem title "WorkSystem" 
 	funcs (Work WayofWorking Team Requirement)

@@ -1,0 +1,29 @@
+{
+  "name": "findfunk",
+  "version": "1.0.0",
+  "description": "sdfsdf",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vorachet/IDEF0-Dsl-to-Dotfile-Compiler.git"
+  },
+  "keywords": [
+    "dsl"
+  ],
+  "author": "Vorachet Jaroensawas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vorachet/IDEF0-Dsl-to-Dotfile-Compiler/issues"
+  },
+  "homepage": "https://github.com/vorachet/IDEF0-Dsl-to-Dotfile-Compiler#readme",
+  "dependencies": {
+    "chokidar": "^3.4.0",
+    "live-server": "^1.2.1"
+  }
+}
