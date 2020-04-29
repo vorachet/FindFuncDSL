@@ -1,0 +1,45 @@
+grammar th.ac.kmutt.sit.IDEF0 with org.eclipse.xtext.common.Terminals
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+generate iDEF0 "https://www.sit.kmutt.ac.th/dsl/IDEF0"
+
+Model returns Model:
+	{Model} 
+	'idef0' name=ID 
+	configs+=Config*
+	('concepts' params+=Concept*)?
+	funcs+=Function*
+	views+=View*
+;
+
+View:
+	'view' name=ID 
+		'title' title=STRING
+		('funcs' '('
+			funcs+=[Function|QualifiedName]* 
+		')')?
+	
+;
+
+Config:
+	'set' name=ID '=' value=STRING
+;
+
+Concept:
+	name=ID  
+	('tags' tags+=STRING* )?
+;
+
+Function:
+	'func' name=ID ('tags' tags+=STRING* )? '('
+		('receives' receives+=[Concept|QualifiedName]* )?
+		('produces' produces+=[Concept|QualifiedName]* )?
+		('respects' respects+=[Concept|QualifiedName]* )?
+		('requires' requires+=[Concept|QualifiedName]* )?
+	')'
+;
+
+QualifiedName:
+ ID ("." ID)*	
+; 

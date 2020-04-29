@@ -7,11 +7,9 @@ var params = {
   host: "0.0.0.0",
   root: "./src-gen",
   open: true,
-  //ignore: "scss,my/templates", // comma-separated string for paths to ignore
-  //file: "index.html", // When set, serve this file (server root relative) for every 404 (useful for single-page applications)
   wait: 1000,
   mount: [["/", "./src-gen"]],
-  logLevel: 2, // 0 = errors only, 1 = some, 2 = lots
+  logLevel: 0,
   middleware: [
     function (req, res, next) {
       next();
