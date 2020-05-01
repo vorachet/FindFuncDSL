@@ -56,6 +56,7 @@ The reserved words that cannot be used as an {identifier}
 
 ```
 idef0 ExampleProject
+set genUI
 concepts
 	InputConcept  OutputConcept
 	ResourceConcept  FinalOutputConcept
