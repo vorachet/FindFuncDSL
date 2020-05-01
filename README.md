@@ -95,10 +95,6 @@ Example DSL files
 
 This project-based learning program is funded by the School of Information Technology, King Mongkut's University of Technology Thonburi - [visit SIT research group](https://www.sit.kmutt.ac.th/sit-research/).
 
-#### Maintainer
-
-- Vorachet Jaroensawas (vorachet@gmail.com)
-
 #### Software building blocks
 
 The list of software projects that help build FindFuncDSL.
