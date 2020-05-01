@@ -2,15 +2,41 @@
 
 FindFunc is a DSL that generates IDEF0-Like diagram and metric of IDEF0 building blocks.
 
-This project-based learning program is funded by the School of Information Technology, King Mongkut's University of Technology Thonburi - [visit SIT research group](https://www.sit.kmutt.ac.th/sit-research/).
+```
+idef0 ExampleProject
+set genUI
+concepts
+	InputConcept  OutputConcept
+	ResourceConcept  FinalOutputConcept
+
+func Function1 (
+	receives InputConcept
+	produces OutputConcept
+	requires ResourceConcept
+)
+
+func Function2 (
+	produces FinalOutputConcept
+	respects OutputConcept
+)
+
+view View1 title "My View1" funcs (Function1 Function2)
+
+view View2 title "My View2" funcs (Function1)
+
+view View3 title "My View3" funcs (Function2)
+
+```
+
+![image](images/ExampleProject.png)
+
+# Install and Run example projects
 
 You will have to install the following software on your computer
 
 - [Ruby v2.6+](https://www.ruby-lang.org/en/downloads/)
 - [Node.js v12.14+ Npm v6.14+](https://nodejs.org/en/download/)
 - [Java v1.8+](https://www.oracle.com/java/technologies/javase-jre8-downloads.html)
-
-# Install and Run example projects
 
 ```
 git clone git@github.com:vorachet/FindFuncDSL.git
@@ -54,34 +80,6 @@ The reserved words that cannot be used as an {identifier}
 - view
 - title
 
-```
-idef0 ExampleProject
-set genUI
-concepts
-	InputConcept  OutputConcept
-	ResourceConcept  FinalOutputConcept
-
-func Function1 (
-	receives InputConcept
-	produces OutputConcept
-	requires ResourceConcept
-)
-
-func Function2 (
-	produces FinalOutputConcept
-	respects OutputConcept
-)
-
-view View1 title "My View1" funcs (Function1 Function2)
-
-view View2 title "My View2" funcs (Function1)
-
-view View3 title "My View3" funcs (Function2)
-
-```
-
-![image](images/ExampleProject.png)
-
 Example DSL files
 
 - [MaintainReparableSpares.idef0](projects/MaintainReparableSpares.idef0)
@@ -89,6 +87,16 @@ Example DSL files
 - [ProjectPlan.idef0](projects/ProjectPlan.idef0)
 - [SweKernel.idef0](projects/SweKernel.idef0)
 
+# Acknowledgement
+
+This project-based learning program is funded by the School of Information Technology, King Mongkut's University of Technology Thonburi - [visit SIT research group](https://www.sit.kmutt.ac.th/sit-research/).
+
 #### Maintainer
 
 - Vorachet Jaroensawas (vorachet@gmail.com)
+
+#### Software building blocks
+
+The list of software projects that help build FindFuncDSL.
+
+- [Eclipse Xtext](https://www.eclipse.org/Xtext/), [jimmyjazz/IDEF0-SVG](https://github.com/jimmyjazz/IDEF0-SVG), [tapio/live-server](https://github.com/tapio/live-server), [paulmillr/chokidar](https://github.com/paulmillr/chokidar)
