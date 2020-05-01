@@ -91,7 +91,3 @@ Example DSL files
 #### Maintainer
 
 - Vorachet Jaroensawas (vorachet@gmail.com)
-
-#### Software building blocks
-
-- [Textual DSL development framework - (Eclipse Xtext)](https://www.eclipse.org/Xtext/), [HTTP server with live reload capability - (tapio/live-server)](https://github.com/tapio/live-server), [Node.js fs.watch wrapper - (paulmillr/chokidar)](https://github.com/paulmillr/chokidar), [SVG - (jimmyjazz/IDEF0-SVG)](https://github.com/jimmyjazz/IDEF0-SVG)
