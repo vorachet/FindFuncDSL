@@ -1,0 +1,47 @@
+idef0 Framework
+
+concepts 
+    AdvisorFramework 
+    GitREPO_4_or_more_projects Updates Changes
+    ALPHAProducts BETAProducts 
+    Values CitizenDevelopers Engineers
+    Reports Publications
+
+func WorkSelection (
+    produces GitREPO_4_or_more_projects
+    respects AdvisorFramework
+)
+
+func Development (
+    receives GitREPO_4_or_more_projects
+    produces ALPHAProducts
+    
+    respects AdvisorFramework
+    requires Updates Changes
+)
+
+func Applications (
+    receives ALPHAProducts
+    produces Values
+    respects CitizenDevelopers Engineers  AdvisorFramework
+)
+
+func TechnicalReport (
+    produces Reports
+    respects AdvisorFramework Values
+)
+
+func SoftwareReleases (
+    produces BETAProducts
+    respects Values ALPHAProducts
+)
+
+func Research (
+    produces Publications
+    respects AdvisorFramework Values
+)
+
+view Framework title "Framework" funcs (
+    WorkSelection Development Applications
+     SoftwareReleases TechnicalReport Research
+)

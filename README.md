@@ -63,7 +63,7 @@ The reserved words that cannot be used as an {identifier}
 - title
 
 ```
-idef0 ProjectName
+idef0 ExampleProject
 concepts
 	InputConcept  OutputConcept
 	ResourceConcept  FinalOutputConcept
@@ -76,7 +76,7 @@ func Function1 (
 
 func Function2 (
 	produces FinalOutputConcept
-	respects OutoutConcept
+	respects OutputConcept
 )
 
 view View1 title "My View1" funcs (Function1 Function2)
