@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/idef0/cli'
+require_relative './lib/idef0/cli'
 
 puts IDEF0::CLI.process($stdin, ARGV).schematic.to_svg

@@ -50,7 +50,7 @@ function runIDEF0SVG(idef0svgFilePath, callback) {
 
 function runFindFunc(dslFilePath, callback) {
   console.log("compiling DSL: ", dslFilePath);
-  const child = exec(`java -jar ./idef0.jar ${dslFilePath}`, function (
+  const child = exec(`java -jar ./bin/idef0.jar ${dslFilePath}`, function (
     error,
     stdout,
     stderr
