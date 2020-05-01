@@ -1,10 +1,11 @@
 idef0 Pizza 
+set genUI
 concepts 
 	Ingredients HungryCustomer CustomerOrder
 	Pizza Mess SatisifedCustomer Menu
 	Recipe Menu WaitStaff Chef Kitchen     
              
-func TakeOrder (              	  	                  
+func TakeOrder (              	  	                    
 	produces CustomerOrder                   
 	respects Menu           
 	requires WaitStaff                

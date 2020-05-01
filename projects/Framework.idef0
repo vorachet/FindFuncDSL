@@ -1,5 +1,5 @@
 idef0 Framework
-
+set genUI
 concepts 
     AdvisorFramework 
     GitREPO_4_or_more_projects Updates Changes

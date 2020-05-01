@@ -144,12 +144,12 @@ width='#{width}pt' height='#{height}pt'
 viewBox='#{x1.to_f} #{y1.to_f} #{x2.to_f} #{y2.to_f}'
 >
 <style type='text/css'>
-  svg {
+  svg { 
     background-color: white;
   }
   text {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 12px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 14px;
   }
 </style>
 <g>

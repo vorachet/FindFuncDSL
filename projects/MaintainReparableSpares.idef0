@@ -1,5 +1,5 @@
 idef0 MaintainReparableSpares
-
+set genUI
 concepts
 	InServiceAsset
 	SpareAsset

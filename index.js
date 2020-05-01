@@ -31,6 +31,7 @@ chokidar.watch("./projects").on("all", (event, path) => {
 });
 
 function runIDEF0SVG(idef0svgFilePath, callback) {
+  console.log("compiling SVG: ", idef0svgFilePath);
   const newSVGFilePath = idef0svgFilePath.replace(".idef0svg", "");
   const child = exec(
     `ruby ./bin/schematic < ${idef0svgFilePath} > ${newSVGFilePath}.svg`,
@@ -48,13 +49,14 @@ function runIDEF0SVG(idef0svgFilePath, callback) {
 }
 
 function runFindFunc(dslFilePath, callback) {
+  console.log("compiling DSL: ", dslFilePath);
   const child = exec(`java -jar ./idef0.jar ${dslFilePath}`, function (
     error,
     stdout,
     stderr
   ) {
-    console.log(stdout);
-    console.log(stderr);
+    if (stdout) console.log(stdout);
+    if (stderr) console.log(stderr);
     if (callback) {
       callback(error, stdout, stderr);
     }

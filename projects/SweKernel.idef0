@@ -1,22 +1,23 @@
 idef0 SweKernel 
+set genUI
 concepts 
-    Address Focus Provision
+    Address Focus Provision  
     Demand UseAndConsume Support
     ScopeAndConstraints Fulfillment
-    PeformsAndPlans Guides Production 
-    UpdatesAndChages 
+    PeformsAndPlans Guides Production   
+    UpdatesAndChages         
 
-func Opportunity (            
+func Opportunity (                
 	receives Address                         
-	produces Focus
-	respects Provision                      
-)       
+	produces Focus                
+	respects Provision                                
+)             
   
 func Stakeholder (   		                       
 	produces Demand UseAndConsume Support Provision   
 )
    
-func Requirement (    		                  
+func Requirement (    		                     
 	receives Fulfillment                 
 	produces ScopeAndConstraints
 	respects Focus Demand

@@ -1,4 +1,5 @@
 idef0 ProjectPlan 
+set genUI
 concepts 
     REQ1 REQ1_1 REQ1_2  
     REQ2 REQ2_1 REQ2_2
