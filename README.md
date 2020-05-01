@@ -28,17 +28,11 @@ If the server can be started successfully, the browser will automatically launch
 
 ![image](images/index.png)
 
-![image](images/MaintainReparableSpares_index.png)
+![image](images/MaintainReparableSpares.png)
 
-![image](images/MaintainReparableSpares_idef0.png)
+![image](images/Pizza.png)
 
-![image](images/MaintainReparableSpares_metric.png)
-
-![image](images/Pizza_idef0.png)
-
-![image](images/ProjectStages_idef0.png)
-
-![image](images/SweKernel_idef0.png)
+![image](images/SweKernel.png)
 
 # The workflow
 
@@ -51,8 +45,6 @@ npm start
 ## Create your FindFuncDSL project
 
 In order to work on multiple FindFuncDSL projects, save your DSL files in `projects` folder.
-
-### Simplified structure of FindFuncDSL
 
 The reserved words that cannot be used as an {identifier}
 
@@ -87,6 +79,8 @@ view View3 title "My View3" funcs (Function2)
 
 ```
 
+![image](images/ExampleProject.png)
+
 Example DSL files
 
 - [MaintainReparableSpares.idef0](projects/MaintainReparableSpares.idef0)
@@ -94,30 +88,10 @@ Example DSL files
 - [ProjectPlan.idef0](projects/ProjectPlan.idef0)
 - [SweKernel.idef0](projects/SweKernel.idef0)
 
-## See the generated artifacts in real-time
-
-# Development notes
-
-## Abstract syntax
-
-- [Abstact syntax text](docs/grammar.txt)
-- [Abstact syntax image](images/syntax.png)
-
-## Concrete syntax examples (the DSL)
-
-- [MaintainReparableSpares.idef0](projects/MaintainReparableSpares.idef0)
-- [Pizza.idef0](projects/Pizza.idef0)
-- [ProjectPlan.idef0](projects/ProjectPlan.idef0)
-- [SweKernel.idef0](projects/SweKernel.idef0)
-
-## Software building blocks
-
-- [Textual DSL development framework - (Eclipse Xtext)](https://www.eclipse.org/Xtext/)
-- [HTTP server with live reload capability - (tapio/live-server)](https://github.com/tapio/live-server)
-- [Node.js fs.watch wrapper - (paulmillr/chokidar)](https://github.com/paulmillr/chokidar)
-- [IDEF0 diagarm generation - (jimmyjazz/IDEF0-SVG)](https://github.com/jimmyjazz/IDEF0-SVG)
-- [UI framework - SemanticUI](https://semantic-ui.com/)
-
-## Maintainer
+#### Maintainer
 
 - Vorachet Jaroensawas (vorachet@gmail.com)
+
+#### Software building blocks
+
+- [Textual DSL development framework - (Eclipse Xtext)](https://www.eclipse.org/Xtext/), [HTTP server with live reload capability - (tapio/live-server)](https://github.com/tapio/live-server), [Node.js fs.watch wrapper - (paulmillr/chokidar)](https://github.com/paulmillr/chokidar), [SVG - (jimmyjazz/IDEF0-SVG)](https://github.com/jimmyjazz/IDEF0-SVG)
