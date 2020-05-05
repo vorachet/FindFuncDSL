@@ -1,22 +1,19 @@
 idef0 ExampleProject
-set genUI
-concepts  
-	InputConcept  OutputConcept
-	ResourceConcept  FinalOutputConcept
-  
-func Function1 (
-	receives InputConcept  
-	produces OutputConcept
-	requires ResourceConcept
-)  
-  
-func Function2 (
-	produces FinalOutputConcept  
-	respects OutputConcept  
-)
 
-view View1 title "My View1" funcs (Function1 Function2)
-
-view View2 title "My View2" funcs (Function1)
+@InputConcept
+@OutputConcept
+@ResourceConcept 
+@FinalOutputConcept
   
-view View3 title "My View3" funcs (Function2)
+func Function1 
+	in InputConcept  
+	out OutputConcept
+	res ResourceConcept
+  
+func Function2
+	out FinalOutputConcept  
+	ctrl OutputConcept  
+
+view View1 < Function1 Function2
+view View2 < Function1
+view View3 < Function2

@@ -148,7 +148,7 @@ viewBox='#{x1.to_f} #{y1.to_f} #{x2.to_f} #{y2.to_f}'
     background-color: white;
   }
   text {
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: 14px Helvetica, Arial, sans-serif;
     font-size: 14px;
   }
 </style>

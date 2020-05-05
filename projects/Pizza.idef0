@@ -1,30 +1,35 @@
-idef0 Pizza 
-set genUI
-concepts 
-	Ingredients HungryCustomer CustomerOrder
-	Pizza Mess SatisifedCustomer Menu
-	Recipe Menu WaitStaff Chef Kitchen     
-             
-func TakeOrder (              	  	                    
-	produces CustomerOrder                   
-	respects Menu           
-	requires WaitStaff                
-)                     
-                        
-func CookPizza (                    
-	receives Ingredients Recipe       
-	produces Pizza
-	respects CustomerOrder            
-	requires Chef Kitchen             
-)      
-  
-func EatPizza (  
-	receives HungryCustomer Pizza
-	produces Mess SatisifedCustomer     
-)        
-
-view PizzaOperations title "Pizza Operations" funcs (TakeOrder CookPizza EatPizza)
-view CookAndEatPizza title "Cook and Eat Pizza" funcs (CookPizza EatPizza)
-view PizzTakeOrder title "TakeOrder" funcs (TakeOrder)
-view PizzCookPizza title "CookPizza" funcs (CookPizza)  
-view PizzEatPizza title "EatPizza" funcs (EatPizza)
+idef0 Pizza    
+    
+@Ingredients
+@HungryCustomer
+@CustomerOrder  
+@Pizza
+@Mess
+@SatisifedCustomer
+@Menu
+@Recipe      
+@Menu 
+@WaitStaff    
+@Chef   
+@Kitchen           
+    
+func TakeOrder                             	  	                  
+	out CustomerOrder            
+	ctrl Menu                      
+	res WaitStaff                                                                            
+                            
+func CookPizza                        
+	in Ingredients Recipe            
+	out Pizza                  
+	ctrl CustomerOrder                  
+	res Chef Kitchen                          
+       
+func EatPizza
+	in HungryCustomer Pizza 
+	res Mess SatisifedCustomer          
+        
+view PizzaOperations < TakeOrder CookPizza EatPizza
+view CookAndEatPizza < CookPizza EatPizza
+view PizzTakeOrder < TakeOrder
+view PizzCookPizza < CookPizza      
+view PizzEatPizza < EatPizza  

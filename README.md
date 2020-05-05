@@ -2,45 +2,41 @@
 
 FindFunc is a DSL that generates IDEF0-Like diagram and metric of IDEF0 building blocks.
 
-Input:
+## The language
+
+### For Citizen Developer
+
+#### Input
 
 ```
 idef0 ExampleProject
-set genUI
-concepts
-	InputConcept  OutputConcept
-	ResourceConcept  FinalOutputConcept
 
-func Function1 (
-	receives InputConcept
-	produces OutputConcept
-	requires ResourceConcept
-)
+@InputConcept
+@OutputConcept
+@ResourceConcept
+@FinalOutputConcept
 
-func Function2 (
-	produces FinalOutputConcept
-	respects OutputConcept
-)
+func Function1
+	in InputConcept
+	out OutputConcept
+	res ResourceConcept
 
-view View1 title "My View1" funcs (Function1 Function2)
+func Function2
+	out FinalOutputConcept
+	ctrl OutputConcept
 
-view View2 title "My View2" funcs (Function1)
-
-view View3 title "My View3" funcs (Function2)
-
+view View1 < Function1 Function2
+view View2 < Function1
+view View3 < Function2
 ```
 
-The reserved words that cannot be used as an {identifier}
-
-- idef0
-- concepts
-- func
-- view
-- title
-
-Output:
+#### Output
 
 ![image](images/ExampleProject.png)
+
+### For Typescript Developer
+
+Coming soon
 
 # Install and Run example projects
 

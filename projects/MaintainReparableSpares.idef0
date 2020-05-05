@@ -1,59 +1,42 @@
 idef0 MaintainReparableSpares
-set genUI
-concepts
-	InServiceAsset
-	SpareAsset
-	DetectedMalfunction
-	SuspectedMalfunction
-	ReparableAsset
-	ReplacedAsset
-	StatusRecords
-	AssetsAwaitingParts
-	AssetBeforeRepair
-	SupplyParts
-	AssetAfterRepair
-	RepairedAsset
-	Spare
 
-func RemoveAndReplace (
-	receives InServiceAsset SpareAsset RepairedAsset
-	produces ReplacedAsset ReparableAsset
-	respects DetectedMalfunction SuspectedMalfunction
-)          
-   
-func ScheduleIntoShop (
-	receives ReparableAsset AssetsAwaitingParts
-	produces StatusRecords AssetBeforeRepair
-)  
+@InServiceAsset
+@SpareAsset
+@DetectedMalfunction
+@SuspectedMalfunction
+@ReparableAsset
+@ReplacedAsset
+@StatusRecords
+@AssetsAwaitingParts
+@AssetBeforeRepair
+@SupplyParts
+@AssetAfterRepair
+@RepairedAsset
+@Spare
 
-func InspectOrRepair (
-	receives AssetBeforeRepair
-	produces AssetAfterRepair
-	respects SupplyParts
-)
+func RemoveAndReplace 
+	in InServiceAsset SpareAsset RepairedAsset
+	out ReplacedAsset ReparableAsset
+	res DetectedMalfunction SuspectedMalfunction
+       
+func ScheduleIntoShop
+	in ReparableAsset AssetsAwaitingParts
+	out StatusRecords AssetBeforeRepair
 
-func MonitorAndRoute (
-	receives AssetAfterRepair
-	produces RepairedAsset AssetsAwaitingParts
-	respects StatusRecords
-)
+func InspectOrRepair
+	in AssetBeforeRepair
+	out AssetAfterRepair
+	ctrl SupplyParts
 
-view MaintainReparableSpares title "MaintainReparableSpares" funcs (
-	RemoveAndReplace ScheduleIntoShop InspectOrRepair MonitorAndRoute
-)
+func MonitorAndRoute
+	in AssetAfterRepair
+	out RepairedAsset AssetsAwaitingParts
+	res StatusRecords
 
-view RemoveAndReplace title "RemoveAndReplace" funcs (
-	RemoveAndReplace
-)
+view MaintainReparableSpares 
+	< RemoveAndReplace ScheduleIntoShop InspectOrRepair MonitorAndRoute
 
-view ScheduleIntoShop title "ScheduleIntoShop" funcs (
-	ScheduleIntoShop
-)
-
-view InspectOrRepair title "InspectOrRepair" funcs (
-	InspectOrRepair
-)
-
-view InspectOrRepair title "MonitorAndRoute" funcs (
-	MonitorAndRoute
-)
+view RemoveAndReplace < RemoveAndReplace
+view ScheduleIntoShop < ScheduleIntoShop
+view InspectOrRepair < InspectOrRepair
+view InspectOrRepair < MonitorAndRoute
