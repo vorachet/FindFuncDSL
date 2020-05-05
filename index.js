@@ -78,6 +78,7 @@ if (!dslSrcFolders) {
 // TYPESCRIPT EMBEDDED DSL FILES
 
 const tsTSSrcFolders = process.env.TYPESCRIPT_SRC_FOLDERS;
+console.log("TYPESCRIPT_SRC_FOLDERS", tsTSSrcFolders);
 if (!tsTSSrcFolders) {
   console.log("No TYPESCRIPT_SRC_FOLDERS found");
   console.log("1. Create .env at the root of project");

@@ -1,0 +1,6 @@
+@idef0 TypescriptClass
+@c1
+@c2
+@func f1 > c1
+@func f2 < c1 > c2
+@view v1 < f1 f2
