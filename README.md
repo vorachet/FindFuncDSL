@@ -8,7 +8,7 @@ FindFunc is a DSL that generates IDEF0-Like diagram and metric of IDEF0 building
 
 #### Input
 
-```
+```java
 idef0 ExampleProject
 
 @InputConcept
@@ -38,7 +38,7 @@ view View3 < Function2
 
 #### Input
 
-```
+```typescript
 //%model TypescriptClass
 //%view v1 < constructor f1 f2 f3
 class TypescriptClass {
