@@ -32,7 +32,7 @@ view View3 < Function2
 
 #### Output
 
-![image](images/ExampleProject.png)
+![image](images/ExampleProject1.png)
 
 ### For Typescript Developer
 
