@@ -1,18 +1,22 @@
 model ExampleProject
 
 %InputConcept
+%CtrlOutputConcept
 %OutputConcept
 %ResourceConcept 
 %FinalOutputConcept
   
 func Function1 
 	in InputConcept  
-	out OutputConcept
+	out CtrlOutputConcept OutputConcept
 	res ResourceConcept
-  
+	funcs Function2
+    
 func Function2
+	in OutputConcept
 	out FinalOutputConcept  
-	ctrl OutputConcept  
+	ctrl CtrlOutputConcept
+	res ResourceConcept
 
 view View1 < Function1 Function2
 view View2 < Function1

@@ -1,53 +1,49 @@
-idef0 SweKernel 
-set genUI
-concepts 
-    Address Focus Provision  
-    Demand UseAndConsume Support
-    ScopeAndConstraints Fulfillment
-    PeformsAndPlans Guides Production   
-    UpdatesAndChages         
+model SweKernel 
 
-func Opportunity (                
-	receives Address                         
-	produces Focus                
-	respects Provision                                
-)             
+%Address
+%Focus
+%Provision  
+%Demand
+%UseAndConsume
+%Support
+%ScopeAndConstraints
+%Fulfillment
+%PeformsAndPlans
+%Guides
+%Production   
+%UpdatesAndChages         
+
+func Opportunity              
+	in Address                         
+	out Focus                
+	ctrl Provision                         
   
-func Stakeholder (   		                       
-	produces Demand UseAndConsume Support Provision   
-)
+func Stakeholder   		                       
+	out Demand UseAndConsume Support Provision   
    
-func Requirement (    		                     
-	receives Fulfillment                 
-	produces ScopeAndConstraints
-	respects Focus Demand
-)
+func Requirement
+	in Fulfillment                 
+	out ScopeAndConstraints
+	ctrl Focus Demand
 
-func SoftwareSystem (        		                       
-	produces Address Fulfillment
-	respects Production UseAndConsume UpdatesAndChages
-)
+func SoftwareSystem        		                       
+	out Address Fulfillment
+	ctrl Production UseAndConsume UpdatesAndChages
 
-func Work (         		                  
-	produces Address UpdatesAndChages
-	respects ScopeAndConstraints PeformsAndPlans Guides
-)
+func Work
+	out Address UpdatesAndChages
+	ctrl ScopeAndConstraints PeformsAndPlans Guides
   
-func WayofWorking (        		                  
-	produces Guides
-)
+func WayofWorking
+	out Guides
 
-func Team (
-	produces PeformsAndPlans Production
-	respects Guides Support
-)  
+func Team
+	out PeformsAndPlans Production
+	ctrl Guides Support
   
-view SWEKernelOverview title "SWE Kernel Overview" 
-	funcs (
-		Opportunity Stakeholder Requirement
+view SWEKernelOverview 
+	<   Opportunity Stakeholder Requirement
 		SoftwareSystem Work WayofWorking
 		Team
-	)
   
-view WorkSystem title "WorkSystem" 
-	funcs (Work WayofWorking Team Requirement)
+view WorkSystem < Work WayofWorking Team Requirement
