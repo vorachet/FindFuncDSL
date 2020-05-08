@@ -1,4 +1,6 @@
 src-gen
 node_modules
-temp
+tmp
 default-src-ts/*.js
+*.ff
+*.findfunc

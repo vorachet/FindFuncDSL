@@ -1,31 +1,35 @@
-idef0 ProjectPlan 
-set genUI
-concepts 
-    REQ1 REQ1_1 REQ1_2  
-    REQ2 REQ2_1 REQ2_2
-    Deliverable1 Deliverable2 Deliverable3
-    Deliverable4 Deliverable5 Deliverable6
-    Facility1 Facility2   
-      
-func Stage1 (             		                    
-	produces Deliverable1 Deliverable2 Deliverable3
-	respects REQ1 REQ1_1 REQ1_2
-	requires Facility1                 
-)
-          
-func Stage2 (          		                  
-	receives Deliverable1 Deliverable2 Deliverable3               
-	produces Deliverable4 Deliverable5 Deliverable6
-	respects REQ2 REQ2_1 REQ2_2
-	requires Facility2        
-)
+model ProjectPlan 
 
-func Stakeholder (
-    receives 
+%REQ1
+%REQ1_1
+%REQ1_2  
+%REQ2
+%REQ2_1
+%REQ2_2
+%Deliverable1
+%Deliverable2
+%Deliverable3
+%Deliverable4
+%Deliverable5
+%Deliverable6
+%Facility1
+%Facility2   
+      
+func Stage1        		                    
+	out Deliverable1 Deliverable2 Deliverable3
+	ctrl REQ1 REQ1_1 REQ1_2
+	res Facility1                 
+          
+func Stage2     		                  
+	in Deliverable1 Deliverable2 Deliverable3               
+	out Deliverable4 Deliverable5 Deliverable6
+	ctrl REQ2 REQ2_1 REQ2_2
+	res Facility2        
+
+func Stakeholder
+    in 
         Deliverable1 Deliverable2 Deliverable3
         Deliverable4 Deliverable5 Deliverable6
-)
 
-view ProjectStages title "ProjectStages" 
-	funcs (Stage1 Stage2)
+view ProjectStages < Stage1 Stage2
          

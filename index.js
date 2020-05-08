@@ -18,6 +18,7 @@ _______           ________
 const TEMP_FOLDER = "./tmp";
 const SRC_GEN_FOLDER = "./src-gen";
 const DEFAUT_DSL_SRC_FOLDER = "./projects";
+const DEFAUT_CODE_FOLDER = "./src";
 const LIVE_SERVER_CONFIG = {
   port: 9080,
   host: "0.0.0.0",
@@ -50,23 +51,21 @@ chokidar.watch(`${SRC_GEN_FOLDER}/**/*.idef0svg`).on("all", (event, path) => {
 let dslSrcFolders = process.env.DSL_SRC_FOLDERS;
 if (!dslSrcFolders) {
   console.log("No DSL_SRC_FOLDERS found");
-  console.log("1. Create .env at the root of project");
-  console.log("2. DSL_SRC_FOLDERS = src_path1, src_path2");
+  console.log(
+    `Usage: Add variable DSL_SRC_FOLDERS into your runtime environment `
+  );
+  console.log(`Ex. DSL_SRC_FOLDERS=src_path1,src_path2 npm start`);
   console.log("\n\n\n");
   console.log(`USE DEFAULT DSL_SRC_FOLDERS = ${DEFAUT_DSL_SRC_FOLDER}`);
   console.log("\n\n\n");
-  // DSL COMPILING PROCESS
-  chokidar
-    .watch(`${DEFAUT_DSL_SRC_FOLDER}/**/*.idef0`)
-    .on("all", (event, path) => {
-      if (event == "add" || event == "change") {
-        runFindFunc(path);
-      }
-    });
+  chokidar.watch(`${DEFAUT_DSL_SRC_FOLDER}/**/*.*`).on("all", (event, path) => {
+    if (event == "add" || event == "change") {
+      runFindFunc(path);
+    }
+  });
 } else {
   const parsedTargetDslSrcFolders = dslSrcFolders.split(",");
   parsedTargetDslSrcFolders.forEach((folder) => {
-    // DSL COMPILING PROCESS
     chokidar.watch(`${folder}/**/*.idef0`).on("all", (event, path) => {
       if (event == "add" || event == "change") {
         runFindFunc(path);
@@ -75,31 +74,50 @@ if (!dslSrcFolders) {
   });
 }
 
-// TYPESCRIPT EMBEDDED DSL FILES
+compileSourceFiles("TYPESCRIPT_SRC_FOLDERS", "ts");
+compileSourceFiles("VUE_SRC_FOLDERS", "vue");
 
-const tsTSSrcFolders = process.env.TYPESCRIPT_SRC_FOLDERS;
-console.log("TYPESCRIPT_SRC_FOLDERS", tsTSSrcFolders);
-if (!tsTSSrcFolders) {
-  console.log("No TYPESCRIPT_SRC_FOLDERS found");
-  console.log("1. Create .env at the root of project");
-  console.log("2. TYPESCRIPT_SRC_FOLDERS = src_path1, src_path2");
-  console.log("\n\n\n");
-} else {
-  const parsedTargetTSSrcFolders = tsTSSrcFolders.split(",");
-  parsedTargetTSSrcFolders.forEach((folder) => {
-    chokidar.watch(`${folder}/**/*.ts`).on("all", (event, path) => {
-      if (event == "add" || event == "change") {
-        prepareTSEmbeddedDSLFiles(path);
-      }
+function compileSourceFiles(ENV_SRC_FOLDERS_NAME, fileExtension) {
+  const targetSrcFolders = process.env[ENV_SRC_FOLDERS_NAME];
+  if (!targetSrcFolders) {
+    console.log(`No ${ENV_SRC_FOLDERS_NAME} found`);
+    console.log(
+      `Usage: Add variable ${ENV_SRC_FOLDERS_NAME} into your runtime environment `
+    );
+    console.log(`Ex. ${ENV_SRC_FOLDERS_NAME}=src_path1,src_path2 npm start`);
+    console.log("\n\n\n");
+    console.log(
+      `USE DEFAULT FOLDER FOR ${ENV_SRC_FOLDERS_NAME} = ${DEFAUT_CODE_FOLDER}`
+    );
+    console.log(`Watching ${DEFAUT_CODE_FOLDER}/**/*.${fileExtension}`);
+    console.log("\n\n\n");
+    chokidar
+      .watch(`${DEFAUT_CODE_FOLDER}/**/*.${fileExtension}`)
+      .on("all", (event, path) => {
+        if (event == "add" || event == "change") {
+          prepareTSEmbeddedDSLFiles(path);
+        }
+      });
+  } else {
+    console.log(ENV_SRC_FOLDERS_NAME, targetSrcFolders);
+    const parsedTargetTSFolders = targetSrcFolders.split(",");
+    parsedTargetTSFolders.forEach((folder) => {
+      chokidar
+        .watch(`${folder}/**/*.${fileExtension}`)
+        .on("all", (event, path) => {
+          if (event == "add" || event == "change") {
+            prepareTSEmbeddedDSLFiles(path);
+          }
+        });
     });
-  });
-  // TYPESCRIPT EMBEDDED DSL COMPILING PROCESS
-  chokidar.watch(`${TEMP_FOLDER}/**/*.idef0`).on("all", (event, path) => {
-    if (event == "add" || event == "change") {
-      runFindFunc(path);
-    }
-  });
+  }
 }
+
+chokidar.watch(`${TEMP_FOLDER}/**/*.idef0`).on("all", (event, path) => {
+  if (event == "add" || event == "change") {
+    runFindFunc(path);
+  }
+});
 
 function ensureTempFolder() {
   if (!fs.existsSync(TEMP_FOLDER)) {
@@ -107,7 +125,7 @@ function ensureTempFolder() {
   }
 }
 function prepareTSEmbeddedDSLFiles(srcFilePath, callback) {
-  const child = exec(`cat ${srcFilePath} | grep '@'`, function (
+  const child = exec(`cat ${srcFilePath} | grep '//\%'`, function (
     error,
     stdout,
     stderr
@@ -122,6 +140,7 @@ function prepareTSEmbeddedDSLFiles(srcFilePath, callback) {
           .map((o) => o.trim().replace("//", ""))
           .filter((o) => o != "")
           .join("\r\n");
+
         fs.writeFileSync(tempFilePath, content + "\r\n");
         console.log(`${tempFilePath} has been created`);
       }
@@ -152,6 +171,8 @@ function runFindFunc(dslFilePath) {
     stdout,
     stderr
   ) {
+    console.log("compiling DSL:", stdout);
+    console.log("compiling DSL:", stderr);
     if (error) {
       console.log("exec error: " + error);
     }

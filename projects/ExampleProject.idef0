@@ -1,9 +1,9 @@
-idef0 ExampleProject
+model ExampleProject
 
-@InputConcept
-@OutputConcept
-@ResourceConcept 
-@FinalOutputConcept
+%InputConcept
+%OutputConcept
+%ResourceConcept 
+%FinalOutputConcept
   
 func Function1 
 	in InputConcept  

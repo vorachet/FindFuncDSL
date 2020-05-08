@@ -1,18 +1,18 @@
-idef0 MaintainReparableSpares
+model MaintainReparableSpares
 
-@InServiceAsset
-@SpareAsset
-@DetectedMalfunction
-@SuspectedMalfunction
-@ReparableAsset
-@ReplacedAsset
-@StatusRecords
-@AssetsAwaitingParts
-@AssetBeforeRepair
-@SupplyParts
-@AssetAfterRepair
-@RepairedAsset
-@Spare
+%InServiceAsset
+%SpareAsset
+%DetectedMalfunction
+%SuspectedMalfunction
+%ReparableAsset
+%ReplacedAsset
+%StatusRecords
+%AssetsAwaitingParts
+%AssetBeforeRepair
+%SupplyParts
+%AssetAfterRepair
+%RepairedAsset
+%Spare
 
 func RemoveAndReplace 
 	in InServiceAsset SpareAsset RepairedAsset

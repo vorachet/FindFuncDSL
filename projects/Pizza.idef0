@@ -1,17 +1,17 @@
-idef0 Pizza    
+model Pizza    
     
-@Ingredients
-@HungryCustomer
-@CustomerOrder  
-@Pizza
-@Mess
-@SatisifedCustomer
-@Menu
-@Recipe      
-@Menu 
-@WaitStaff    
-@Chef   
-@Kitchen           
+%Ingredients
+%HungryCustomer
+%CustomerOrder  
+%Pizza
+%Mess
+%SatisifedCustomer
+%Menu
+%Recipe      
+%Menu 
+%WaitStaff    
+%Chef   
+%Kitchen           
     
 func TakeOrder                             	  	                  
 	out CustomerOrder            
