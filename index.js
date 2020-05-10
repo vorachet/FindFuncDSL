@@ -5,9 +5,9 @@ const chokidar = require("chokidar");
 const exec = require("child_process").exec;
 const liveServer = require("live-server");
 
+const DEFAUT_DSL_FOLDER = "./projects";
+const DEFAUT_SRC_FOLDER = "./src";
 const TEMP_FOLDER = "./tmp";
-const DEFAUT_DSL_SRC_FOLDER = "./projects";
-const DEFAUT_CODE_FOLDER = "./src";
 const SRC_GEN_FOLDER = process.env.SRC_GEN_PATH || "./src-gen";
 
 if (!process.env.DSL_PATHS) {
@@ -18,10 +18,8 @@ if (!process.env.SRC_PATHS) {
   showDSL4ProgHelpMessages();
 }
 
-watchAndCompileDSL(process.env.DSL_PATHS || `${DEFAUT_DSL_SRC_FOLDER}/**/*.*`);
-watchAndCompileSrcCommentDSL(
-  process.env.SRC_PATHS || `${DEFAUT_CODE_FOLDER}/**/*.*`
-);
+watchAndCompileDSL(process.env.DSL_PATHS || `${DEFAUT_DSL_FOLDER}/**/*.*`);
+watchAndCompileSRC(process.env.SRC_PATHS || `${DEFAUT_SRC_FOLDER}/**/*.*`);
 watchFilesAndRunIEDF0SVG(`${SRC_GEN_FOLDER}/**/*.idef0svg`);
 startWebServer();
 
@@ -49,7 +47,7 @@ function watchAndCompileDSL(dslPaths) {
   });
 }
 
-function watchAndCompileSrcCommentDSL(srcPaths) {
+function watchAndCompileSRC(srcPaths) {
   const srcPathsArray = srcPaths.split(",");
   srcPathsArray.forEach((srcPath) => {
     watchFilesAndRunSrcCommentExtractor(srcPath);
