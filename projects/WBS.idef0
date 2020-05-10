@@ -1,0 +1,9 @@
+model WBS
+
+func f1 -> f1.1 f1.2
+
+func f1.1
+
+func f1.2
+
+view v1 < f1 f1.1 f1.2  

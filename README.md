@@ -2,9 +2,14 @@
 
 FindFunc is a DSL that generates IDEF0-Like diagram and metric of IDEF0 building blocks.
 
+## Applications
+
+Business process
+Solution components
+
 ## The language
 
-### For Citizen Developer
+### For Architect, System Modeler, Citizen Developer
 
 #### Input
 

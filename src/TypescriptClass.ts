@@ -22,7 +22,7 @@ class TypescriptClass {
     this.f2(10);
   }
 
-  //%func f2 < arg3 > c2 -> f3
+  //%func f2 < arg3 c2 > c2 -> f3
   //%arg3
   f2(arg3: number) {
     this.c2 = this.c2 * arg3;
