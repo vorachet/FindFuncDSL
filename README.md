@@ -137,7 +137,7 @@ Example DSL files
 
 # Acknowledgement
 
-This project-based learning program is funded by the School of Information Technology, King Mongkut's University of Technology Thonburi - [visit SIT research group](https://www.sit.kmutt.ac.th/sit-research/).
+This project-based learning program is funded by the School of Information Technology, King Mongkut's University of Technology Thonburi
 
 #### Software building blocks
 
