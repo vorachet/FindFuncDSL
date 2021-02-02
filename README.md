@@ -135,9 +135,6 @@ Example DSL files
 - [ProjectPlan.idef0](projects/ProjectPlan.idef0)
 - [SweKernel.idef0](projects/SweKernel.idef0)
 
-# Acknowledgement
-
-This project-based learning program is funded by the School of Information Technology, King Mongkut's University of Technology Thonburi
 
 #### Software building blocks
 
@@ -145,6 +142,3 @@ The list of software projects that help build FindFuncDSL.
 
 - [Eclipse Xtext](https://www.eclipse.org/Xtext/), [jimmyjazz/IDEF0-SVG](https://github.com/jimmyjazz/IDEF0-SVG), [tapio/live-server](https://github.com/tapio/live-server), [paulmillr/chokidar](https://github.com/paulmillr/chokidar)
 
-#### License
-
-MIT (c) School of Information Technology, King Mongkut's University of Technology Thonburi, see [LICENSE](LICENSE) file and https://opensource.org/licenses/MIT.
