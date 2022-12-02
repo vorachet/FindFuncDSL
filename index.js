@@ -18,8 +18,8 @@ if (!process.env.SRC_PATHS) {
   showDSL4ProgHelpMessages();
 }
 
-watchAndCompileDSL(process.env.DSL_PATHS || `${DEFAUT_DSL_FOLDER}/**/*.*`);
-watchAndCompileSRC(process.env.SRC_PATHS || `${DEFAUT_SRC_FOLDER}/**/*.*`);
+watchAndCompileDSL(process.env.DSL_PATHS || `${DEFAUT_DSL_FOLDER}`);
+watchAndCompileSRC(process.env.SRC_PATHS || `${DEFAUT_SRC_FOLDER}`);
 watchFilesAndRunIEDF0SVG(`${SRC_GEN_FOLDER}/**/*.idef0svg`);
 startWebServer();
 
