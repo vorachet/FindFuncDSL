@@ -42,6 +42,7 @@ function startWebServer() {
 
 function watchAndCompileDSL(dslPaths) {
   const dslPathsArray = dslPaths.split(",");
+  console.log("dslPathsArray", dslPathsArray)
   dslPathsArray.forEach((folder) => {
     watchFilesAndRunFundFunc(`${folder}/**/*.idef0`);
   });
@@ -71,7 +72,7 @@ function watchFilesAndRunSrcCommentExtractor(srcPath) {
   if (chokidar) {
     console.log(`watching SRC ${srcPath} ...`);
     chokidar.watch(`${srcPath}`).on("all", (event, path) => {
-      if (event == "change") {
+      if (event == "add" || event == "change") {
         runSrcCommentExtractor(path);
       }
     });
@@ -93,7 +94,8 @@ function watchFilesAndRunFundFunc(targePath) {
   if (chokidar) {
     console.log(`watching DSL ${targePath} ...`);
     chokidar.watch(targePath).on("all", (event, path) => {
-      if (event == "change") {
+       console.log(event, path)
+       if (event == "add" || event == "change") {
         runFindFunc(path);
       }
     });
